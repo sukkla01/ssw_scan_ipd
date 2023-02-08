@@ -42,7 +42,7 @@ exports.getDrugScanIpdSearch = async (req, res) => {
     LEFT JOIN ward w ON w.ward = i.ward
     LEFT JOIN iptadm a ON a.an = i.an
     LEFT JOIN ipt_doctor_scan_type_ict9 t ON t.ipt_doctor_scan_type_id = s.ipt_doctor_scan_type_id
-    WHERE   rxdate = CURRENT_DATE  AND concat(i.hn,s.an) like '%` + txtsearch + `%'   `);
+    WHERE     concat(i.hn,s.an) like '%` + txtsearch + `%'   `);
 
     res.status(200).json(response.rows);
 };
